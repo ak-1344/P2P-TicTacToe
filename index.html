@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P2P TicTacToe</title>
     <link rel="stylesheet" href="style.css">
+    <script src="peerjs.min.js"></script>
 </head>
 
 <body>
@@ -21,6 +22,15 @@
     <div id="room">
         <button id="create" onclick="createRoom()">Create Room</button>
         <button id="join" onclick="joinRoom()">Join Room</button>
+        <div id="room-info" style="display: none;">
+            <p>Your Room ID: <span id="room-id"></span></p>
+            <button onclick="copyRoomId()">Copy Room ID</button>
+        </div>
+        <div id="join-form" style="display: none;">
+            <input type="text" id="peer-id-input" placeholder="Enter Room ID">
+            <button onclick="connectToPeer()">Connect</button>
+        </div>
+        <div id="connection-status"></div>
     </div>
 
     <div id="box">
@@ -42,8 +52,8 @@
             </div>
         </div>
         <div class="player-info">
-            <div id="player1">Player1<span id="symbol1">: X</span></div>
-            <div id="player2">Player2<span id="symbol2">: O</span></div>
+            <div id="player1">You (X)<span id="symbol1"></span></div>
+            <div id="player2">Opponent (O)<span id="symbol2"></span></div>
         </div>
         <div id="status">Waiting for another player to join...</div>
         <button id="restart" onclick="restart()">Restart</button>
