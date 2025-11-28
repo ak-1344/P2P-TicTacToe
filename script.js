@@ -143,13 +143,9 @@ function updatePlayerInfo() {
     document.getElementById("player1").innerText = isHost ? "You (X)" : "Opponent (X)";
     document.getElementById("player2").innerText = isHost ? "Opponent (O)" : "You (O)";
     
-    if (isHost) {
-        document.getElementById("player1").style.color = "#ffc400";
-        document.getElementById("player2").style.color = "#000000";
-    } else {
-        document.getElementById("player1").style.color = "#ffc400";
-        document.getElementById("player2").style.color = "#000000";
-    }
+    // X is always yellow, O is always black
+    document.getElementById("player1").style.color = "#ffc400";
+    document.getElementById("player2").style.color = "#000000";
 }
 
 function copyRoomId() {
